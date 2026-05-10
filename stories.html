@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories - AI Story Teller</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header class="page-header">
+            <div class="header-content">
+                <button id="back-btn" class="back-btn">← Dashboard</button>
+                <h1 class="page-title">Story Generator</h1>
+                <div class="user-controls">
+                    <span id="user-name" class="user-name"></span>
+                    <button id="logout-btn" class="logout-btn">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="stories-main">
+            <div class="stories-layout">
+                <!-- Control Panel -->
+                <div class="control-panel">
+                    <div class="control-section">
+                        <label class="control-label">Genre</label>
+                        <select id="genre-select" class="genre-select">
+                            <option value="adventure">Adventure</option>
+                            <option value="horror">Horror</option>
+                            <option value="mystery">Mystery/Thriller</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="sci-fi">Science Fiction</option>
+                            <option value="comedy">Comedy</option>
+                            <option value="drama">Drama</option>
+                            <option value="romance">Romance</option>
+                            <option value="kids">Kids Stories</option>
+                        </select>
+                    </div>
+
+                    <div class="control-section">
+                        <label class="control-label">Characters</label>
+                        <div class="character-manager">
+                            <div id="character-list" class="character-list">
+                                <!-- Characters will be added here -->
+                            </div>
+                            <div class="character-controls">
+                                <input type="text" id="character-input" placeholder="Character name" class="character-input">
+                                <button id="add-character" class="add-character-btn">Add</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-section">
+                        <label class="control-label">Story Prompt</label>
+                        <textarea id="story-prompt" class="story-prompt" placeholder="Enter your story idea or setting..."></textarea>
+                    </div>
+
+                    <button id="generate-story" class="generate-btn">
+                        <span class="btn-text">Generate Story</span>
+                        <div class="btn-loading">
+                            <div class="spinner"></div>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Story Display -->
+                <div class="story-display">
+                    <div class="story-header">
+                        <h3>Your Story</h3>
+                        <div class="story-controls">
+                            <button id="speak-story" class="control-btn speak-btn">
+                                <span class="speak-icon">🔊</span>
+                                <span class="speak-text">Read Story</span>
+                            </button>
+                            <button id="save-story" class="control-btn">Save</button>
+                            <button id="export-story" class="control-btn">Export</button>
+                            <button id="clear-story" class="control-btn danger">Clear</button>
+                        </div>
+                    </div>
+                    <div id="story-content" class="story-content">
+                        <p class="story-placeholder">Your generated story will appear here...</p>
+                    </div>
+                </div>
+
+                <!-- Story Chatbot -->
+                <div class="story-chatbot">
+                    <div class="chatbot-header">
+                        <h3>Story Editor AI</h3>
+                        <p>Ask me to modify your story or suggest improvements!</p>
+                    </div>
+                    <div id="story-chat-messages" class="story-chat-messages">
+                        <div class="chat-message ai-message">
+                            <div class="message-content">
+                                <p>Hi! I can help you edit and improve your story. Just tell me what changes you'd like to make!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-chat-input-container">
+                        <input type="text" id="story-chat-input" class="story-chat-input" placeholder="Ask me to change something in your story...">
+                        <button id="story-chat-send" class="story-chat-send-btn">Send</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Candidates Modal -->
+            <div id="candidates-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Choose Your Story Direction</h3>
+                        <button id="close-candidates" class="close-btn">×</button>
+                    </div>
+                    <div id="candidates-container" class="candidates-container">
+                        <!-- Candidates will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="gemini.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

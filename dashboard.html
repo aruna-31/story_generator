@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AI Story Teller</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1 class="logo">AI Story Teller</h1>
+                <div class="user-controls">
+                    <span id="user-name" class="user-name"></span>
+                    <button id="logout-btn" class="logout-btn">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="dashboard-main">
+            <div class="dashboard-grid">
+                <!-- Stories Card -->
+                <div class="dashboard-card neon-card" data-page="stories.html">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <div class="card-icon">📚</div>
+                        <h3 class="card-title">Stories</h3>
+                        <p class="card-description">Create immersive stories with AI assistance</p>
+                        <div class="card-glow"></div>
+                    </div>
+                </div>
+
+                <!-- Gaming Card -->
+                <div class="dashboard-card neon-card" data-page="gaming.html">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <div class="card-icon">🎮</div>
+                        <h3 class="card-title">Gaming</h3>
+                        <p class="card-description">Generate unique game concepts and mechanics</p>
+                        <div class="card-glow"></div>
+                    </div>
+                </div>
+
+                <!-- Education Card -->
+                <div class="dashboard-card education-card" data-page="education.html">
+                    <div class="card-content">
+                        <div class="card-icon education-icon">🎓</div>
+                        <h3 class="card-title">Education</h3>
+                        <p class="card-description">Learn and explore with AI-powered assistance</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="history-section">
+                <h2 class="section-title">Recent Activity</h2>
+                <div id="recent-items" class="recent-items">
+                    <!-- Recent items will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Recent Activity Cards -->
+            <div class="recent-activity-section">
+                <h2 class="section-title">Your Recent Activities</h2>
+                <div class="activity-grid">
+                    <div class="activity-card stories-activity">
+                        <div class="activity-icon">📚</div>
+                        <div class="activity-content">
+                            <h4>Recent Stories</h4> 
+                            <div id="recent-stories" class="activity-list">
+                                <p class="no-activity">No stories created yet</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-card gaming-activity">
+                        <div class="activity-icon">🎮</div>
+                        <div class="activity-content">
+                            <h4>Recent Games</h4>
+                            <div id="recent-games" class="activity-list">
+                                <p class="no-activity">No games created yet</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-card education-activity">
+                        <div class="activity-icon">🎓</div>
+                        <div class="activity-content">
+                            <h4>Recent Learning</h4>
+                            <div id="recent-learning" class="activity-list">
+                                <p class="no-activity">No learning sessions yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shared Stories Section -->
+            <div class="shared-stories-section">
+                <h2 class="section-title">Community Stories</h2>
+                <p class="section-subtitle">Discover amazing stories shared by our community</p>
+                <div id="shared-stories" class="shared-stories-grid">
+                    <div class="loading-placeholder">
+                        <div class="spinner"></div>
+                        <p>Loading community stories...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="gemini.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

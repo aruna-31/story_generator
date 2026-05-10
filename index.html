@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Story Teller</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Splash Screen -->
+        <div id="splash-screen" class="splash-screen active">
+            <div class="particles"></div>
+            <div class="splash-content">
+                <h1 class="splash-title">AI Story Teller</h1>
+                <div class="scanning-line"></div>
+            </div>
+        </div>
+
+        <!-- Auth Container -->
+        <div id="auth-container" class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h2 id="auth-title">Welcome Back</h2>
+                    <p id="auth-subtitle">Sign in to continue your journey</p>
+                </div>
+
+                <!-- Login Form -->
+                <form id="login-form" class="auth-form active">
+                    <div class="input-group">
+                        <input type="email" id="login-email" placeholder="Email" required>
+                        <span class="input-focus"></span>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="login-password" placeholder="Password" required>
+                        <span class="input-focus"></span>
+                    </div>
+                    <button type="submit" class="auth-btn">Sign In</button>
+                    <p class="auth-switch">
+                        Don't have an account? 
+                        <span id="show-signup" class="auth-link">Sign up</span>
+                    </p>
+                </form>
+
+                <!-- Signup Form -->
+                <form id="signup-form" class="auth-form">
+                    <div class="input-group">
+                        <input type="text" id="signup-name" placeholder="Full Name" required>
+                        <span class="input-focus"></span>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="signup-email" placeholder="Email" required>
+                        <span class="input-focus"></span>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="signup-password" placeholder="Password" required>
+                        <span class="input-focus"></span>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="signup-confirm" placeholder="Confirm Password" required>
+                        <span class="input-focus"></span>
+                    </div>
+                    <button type="submit" class="auth-btn">Create Account</button>
+                    <p class="auth-switch">
+                        Already have an account? 
+                        <span id="show-login" class="auth-link">Sign in</span>
+                    </p>
+                </form>
+
+                <div id="auth-error" class="auth-error"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="gemini.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

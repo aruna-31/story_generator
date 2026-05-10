@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - AI Story Teller</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header class="page-header education-header">
+            <div class="header-content">
+                <button id="back-btn" class="back-btn">← Dashboard</button>
+                <h1 class="page-title">Education Hub</h1>
+                <div class="user-controls">
+                    <span id="user-name" class="user-name"></span>
+                    <button id="logout-btn" class="logout-btn">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="education-main">
+            <!-- Level Selection -->
+            <div id="level-selection" class="level-selection active">
+                <div class="education-grid">
+                    <div class="education-card" data-level="school">
+                        <div class="education-icon">🏫</div>
+                        <h3>School Level</h3>
+                        <p>Interactive learning with AI assistance for grades 1-12</p>
+                    </div>
+
+                    <div class="education-card" data-level="intermediate">
+                        <div class="education-icon">📖</div>
+                        <h3>Intermediate</h3>
+                        <p>Competitive exam preparation and advanced concepts</p>
+                    </div>
+
+                    <div class="education-card" data-level="college">
+                        <div class="education-icon">🎓</div>
+                        <h3>College</h3>
+                        <p>Professional development and specialized resources</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- School Level Chat -->
+            <div id="school-chat" class="chat-container">
+                <div class="chat-header">
+                    <button class="level-back-btn">← Back to Levels</button>
+                    <h3>School Level Assistant</h3>
+                </div>
+                <div id="school-chat-messages" class="chat-messages">
+                    <div class="chat-message ai-message">
+                        <div class="message-content">
+                            <p>Hello! I'm your AI learning assistant. Ask me anything about your school subjects - math, science, history, literature, and more!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-container">
+                    <input type="text" id="school-chat-input" class="chat-input" placeholder="Ask your question...">
+                    <button id="school-send-btn" class="chat-send-btn">Send</button>
+                </div>
+            </div>
+
+            <!-- Intermediate Level -->
+            <div id="intermediate-section" class="intermediate-section">
+                <div class="intermediate-header">
+                    <button class="level-back-btn">← Back to Levels</button>
+                    <h3>Intermediate Level</h3>
+                </div>
+                <div class="intermediate-grid">
+                    <div class="resource-card">
+                        <h4>Study Resources</h4>
+                        <div class="resource-links">
+                            <a href="https://vedantu.com" target="_blank" class="resource-link">Vedantu</a>
+                            <a href="https://unacademy.com/goal/jee-main" target="_blank" class="resource-link">Unacademy JEE</a>
+                            <a href="https://www.youtube.com/@UnacademyJEE" target="_blank" class="resource-link">Unacademy JEE YouTube</a>
+                            <a href="https://unacademy.com/goal/neet-ug" target="_blank" class="resource-link">Unacademy NEET</a>
+                            <a href="https://www.youtube.com/@UnacademyNEET" target="_blank" class="resource-link">Unacademy NEET YouTube</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <h4>AI Chat Assistant</h4>
+                        <button id="open-intermediate-chat" class="chat-open-btn">Start Chat Session</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intermediate Chat -->
+            <div id="intermediate-chat" class="chat-container">
+                <div class="chat-header">
+                    <button class="chat-back-btn">← Back to Resources</button>
+                    <h3>Intermediate AI Assistant</h3>
+                </div>
+                <div id="intermediate-chat-messages" class="chat-messages">
+                    <div class="chat-message ai-message">
+                        <div class="message-content">
+                            <p>I'm here to help with competitive exam preparation! Ask me about JEE, NEET, or any advanced topics.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-container">
+                    <input type="text" id="intermediate-chat-input" class="chat-input" placeholder="Ask about exam topics...">
+                    <button id="intermediate-send-btn" class="chat-send-btn">Send</button>
+                </div>
+            </div>
+
+            <!-- College Level -->
+            <div id="college-section" class="college-section">
+                <div class="college-header">
+                    <button class="level-back-btn">← Back to Levels</button>
+                    <h3>College Level Resources</h3>
+                </div>
+                <div class="college-grid">
+                    <div class="branch-card" data-branch="cse">
+                        <div class="branch-icon">💻</div>
+                        <h4>Computer Science</h4>
+                        <p>Programming languages and software development</p>
+                    </div>
+                    <div class="branch-card" data-branch="ece">
+                        <div class="branch-icon">⚡</div>
+                        <h4>Electronics</h4>
+                        <p>Electronics and communication engineering</p>
+                    </div>
+                    <div class="branch-card" data-branch="eee">
+                        <div class="branch-icon">🔌</div>
+                        <h4>Electrical</h4>
+                        <p>Electrical engineering and power systems</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CSE Resources -->
+            <div id="cse-resources" class="cse-resources">
+                <div class="cse-header">
+                    <button class="branch-back-btn">← Back to Branches</button>
+                    <h3>Computer Science Resources</h3>
+                </div>
+                <div class="w3schools-grid">
+                    <a href="https://www.w3schools.com/c/" target="_blank" class="w3-link">C Programming</a>
+                    <a href="https://www.w3schools.com/python/" target="_blank" class="w3-link">Python</a>
+                    <a href="https://www.w3schools.com/java/" target="_blank" class="w3-link">Java</a>
+                    <a href="https://www.w3schools.com/sql/" target="_blank" class="w3-link">SQL</a>
+                    <a href="https://www.w3schools.com/html/" target="_blank" class="w3-link">HTML</a>
+                    <a href="https://www.w3schools.com/css/" target="_blank" class="w3-link">CSS</a>
+                    <a href="https://www.w3schools.com/js/" target="_blank" class="w3-link">JavaScript</a>
+                    <a href="https://www.w3schools.com/" target="_blank" class="w3-link">More Resources</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="gemini.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

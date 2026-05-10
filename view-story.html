@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shared Story - AI Story Teller</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .story-viewer {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .story-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .story-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .story-title {
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+        
+        .story-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .story-content {
+            padding: 50px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .story-content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        .story-actions {
+            padding: 30px 50px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .action-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+            font-size: 1.2rem;
+            color: white;
+        }
+        
+        .error {
+            text-align: center;
+            color: white;
+            padding: 40px;
+        }
+        
+        .error h2 {
+            margin-bottom: 20px;
+        }
+        
+        .home-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .home-link:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        @media (max-width: 768px) {
+            .story-viewer {
+                padding: 10px;
+            }
+            
+            .story-header {
+                padding: 30px 20px;
+            }
+            
+            .story-title {
+                font-size: 2rem;
+            }
+            
+            .story-content {
+                padding: 30px 20px;
+                font-size: 1.1rem;
+            }
+            
+            .story-actions {
+                padding: 20px;
+                flex-direction: column;
+            }
+            
+            .story-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="story-viewer">
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <span style="margin-left: 15px;">Loading story...</span>
+        </div>
+        
+        <div id="error" class="error" style="display: none;">
+            <h2>Story Not Found</h2>
+            <p>The story you're looking for doesn't exist or has been removed.</p>
+            <a href="index.html" class="home-link">Go Home</a>
+        </div>
+        
+        <div id="story-container" class="story-card" style="display: none;">
+            <div class="story-header">
+                <h1 id="story-title" class="story-title">Story Title</h1>
+                <div class="story-meta">
+                    <div class="meta-item">
+                        <span>📚</span>
+                        <span id="story-genre">Genre</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>👤</span>
+                        <span id="story-author">Author</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>📅</span>
+                        <span id="story-date">Date</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="story-content" id="story-content">
+                <!-- Story content will be loaded here -->
+            </div>
+            
+            <div class="story-actions">
+                <div class="action-group">
+                    <button id="speak-btn" class="action-btn btn-primary">
+                        <span>🔊</span>
+                        <span>Read Aloud</span>
+                    </button>
+                    <button id="copy-btn" class="action-btn btn-secondary">
+                        <span>📋</span>
+                        <span>Copy Text</span>
+                    </button>
+                </div>
+                <div class="action-group">
+                    <a href="index.html" class="action-btn btn-success">
+                        <span>🏠</span>
+                        <span>Create Your Own</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="view-story.js"></script>
+</body>
+</html>

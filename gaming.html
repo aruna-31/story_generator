@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming - AI Story Teller</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header class="page-header">
+            <div class="header-content">
+                <button id="back-btn" class="back-btn">← Dashboard</button>
+                <h1 class="page-title">Game Concept Generator</h1>
+                <div class="user-controls">
+                    <span id="user-name" class="user-name"></span>
+                    <button id="logout-btn" class="logout-btn">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="gaming-main">
+            <div class="gaming-layout">
+                <!-- Control Panel -->
+                <div class="control-panel">
+                    <div class="control-section">
+                        <label class="control-label">Game Type</label>
+                        <select id="game-type-select" class="genre-select">
+                            <option value="action">Action</option>
+                            <option value="adventure">Adventure</option>
+                            <option value="simulation">Simulation</option>
+                            <option value="sports">Sports</option>
+                            <option value="racing">Racing</option>
+                            <option value="puzzle">Puzzle</option>
+                            <option value="fighting">Fighting</option>
+                            <option value="rpg">RPG</option>
+                            <option value="strategy">Strategy</option>
+                        </select>
+                    </div>
+
+                    <div class="control-section">
+                        <label class="control-label">Target Platform</label>
+                        <select id="platform-select" class="genre-select">
+                            <option value="mobile">Mobile</option>
+                            <option value="pc">PC</option>
+                            <option value="console">Console</option>
+                            <option value="web">Web Browser</option>
+                            <option value="vr">VR</option>
+                        </select>
+                    </div>
+
+                    <div class="control-section">
+                        <label class="control-label">Core Mechanics</label>
+                        <input type="text" id="mechanics-input" class="story-prompt" placeholder="e.g., turn-based, real-time, resource management...">
+                    </div>
+
+                    <div class="control-section">
+                        <label class="control-label">Main Characters</label>
+                        <div class="character-manager">
+                            <div id="game-character-list" class="character-list">
+                                <!-- Characters will be added here -->
+                            </div>
+                            <div class="character-controls">
+                                <input type="text" id="game-character-input" placeholder="Character name" class="character-input">
+                                <button id="add-game-character" class="add-character-btn">Add</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="generate-game" class="generate-btn">
+                        <span class="btn-text">Generate Game Concept</span>
+                        <div class="btn-loading">
+                            <div class="spinner"></div>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Game Display -->
+                <div class="game-display">
+                    <div class="story-header">
+                        <h3>Game Concept</h3>
+                        <div class="story-controls">
+                            <button id="save-game" class="control-btn">Save Concept</button>
+                            <button id="export-game" class="control-btn">Export</button>
+                            <button id="clear-game" class="control-btn danger">Clear</button>
+                        </div>
+                    </div>
+                    <div id="game-content" class="story-content">
+                        <p class="story-placeholder">Your game concept will appear here...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="gemini.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
