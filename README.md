@@ -1,8 +1,8 @@
-# Innoverse AI Driven StoryTeller
+# AI Driven StoryTeller website link:fluffy-cuchufli-829b98.netlify.app
 
 ![AI Story Teller Login](file:///C:/Users/aruna/.gemini/antigravity/brain/66949212-c845-477a-93e8-3e25e9b2e0c9/website_home_page_1778425394966.png)
 
-**Innoverse AI Driven StoryTeller** is a premium, modern web application designed to empower creativity through artificial intelligence. Powered by Google's Gemini AI, it allows users to generate immersive stories, design complex game concepts, and explore educational topics in an interactive environment.
+** AI Driven StoryTeller** is a premium, modern web application designed to empower creativity through artificial intelligence. Powered by Google's Gemini AI, it allows users to generate immersive stories, design complex game concepts, and explore educational topics in an interactive environment.
 
 ## ✨ Key Features
 
